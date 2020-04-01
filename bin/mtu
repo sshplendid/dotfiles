@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+#########################
+# MTU 값 조정을 위한 스크립트
+#
+# 사용법: $ mtu up
+#########################
+
+if [ $1 == "up" ]; then
+  unit=1500
+elif [ $1 == "down" ]; then
+  unit=200
+else
+  unit=$1
+fi
+
+echo "set mtu $unit"
+sudo ifconfig en0 mtu ${unit}
